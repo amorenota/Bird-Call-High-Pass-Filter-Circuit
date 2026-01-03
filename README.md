@@ -1,14 +1,33 @@
-# Bird-Call-High-Pass-Filter-Circuit
-This project involves designing a filter circuit to remove noise caused by wind hitting a microphone from an audio recording of bird calls.
-- Part 1:
-  - Perform Fast Fourier Transform (FFT) analysis in LTSpice on noisy bird calls audio file and identify approximate frequency ranges for wind noise vs. birds.
-  - On a conceptual basis, determine which of the following four filter types would be most appropriate to use for removing wind while leaving birds unchanged (low-pass, high-pass, band-pass, band-stop).
-- Part 2:
-  - Determine resistor and capacitor values needed to design two active filter configurations: Sallen-Key and Multi-Feedback.
-  - Simulate circuits with ideal components in LTSpice to compare frequency responses.
-  - Perform Monte Carlo analysis in LTSpice to observe effect on frequency response if 20% tolerance capacitors are used and decide which configuration has the more desirable response.
-- Part 3:
-  - Design multi-stage Butterworth filter to attenuate wind noise in audio file by specified value and leave bird calls unchanged. You will be provided with a document containing different filter “building blocks” along with their associated transfer functions. In-class discussions will cover the advantages and drawbacks of each.
-  - Simulate complete filter circuit in LTSpice and transfer function in MATLAB to compare Bode Plots of frequency response.
-  - Perform Monte Carlo analysis in LTSpice on complete filter with 20% tolerance capacitors and decide if overall response is acceptable, or if better capacitors should be used.
-  - Export audio file from filter output in LTSpice and listen to determine if wind noise was removed.
+# Bird Call High-Pass Filter Circuit
+
+This project analyzes and filters noisy bird-call audio recordings to remove low-frequency wind noise while preserving the bird calls of interest.
+
+## Part 1 – Frequency Analysis and Filter Selection
+
+### Objective
+Wind hitting a microphone introduces strong low-frequency noise that masks bird calls.  
+The goal of Part 1 is to analyze the frequency content of the recording and determine the most appropriate filter topology.
+
+### Method
+- Imported a real-world bird-call audio recording into LTSpice
+- Performed FFT analysis to examine frequency content
+- Identified distinct frequency bands corresponding to:
+  - Wind noise (low-frequency)
+  - Bird calls (higher-frequency)
+- Used frequency-domain results to evaluate candidate filter types
+
+### Findings
+- Wind noise dominates approximately the 0–500 Hz range
+- Bird calls occupy higher frequencies, beginning several hundred Hz above the wind band
+- A **high-pass filter** is the most effective solution for attenuating wind while preserving bird calls
+
+### Files
+- `part1/ltspice/fft_analysis.cir` – LTSpice netlist used to perform FFT analysis on the audio file
+- `part1/audio/wind_birds.wav` – Original noisy bird-call recording
+- `part1/report/part1_description.pdf` – Written explanation and analysis for Part 1
+
+### Tools
+- LTSpice
+
+> Parts 2 and 3 expand on this analysis by designing, simulating, and validating an active high-pass filter that removes wind noise from the audio file.
+
