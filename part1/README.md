@@ -1,7 +1,3 @@
-# Bird Call High-Pass Filter Circuit
-
-This project analyzes and filters noisy bird-call audio recordings to remove low-frequency wind noise while preserving the bird calls of interest.
-
 ## Part 1 – Frequency Analysis and Filter Selection
 
 ### Objective
