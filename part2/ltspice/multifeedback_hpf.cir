@@ -1,0 +1,16 @@
+MultiFeedback HPF
+V1 IN 0 AC 1
+
+C1 IN 1 0.1u
+C2 1 2 0.1u
+C3 1 OUT 0.1u
+
+R1 1 0 4714
+R2 OUT 2 21200
+
+X1 0 2 OUT OPAMP
+
+
+.INC ideal_opamp.cir
+.AC DEC 500 100 100k
+.END

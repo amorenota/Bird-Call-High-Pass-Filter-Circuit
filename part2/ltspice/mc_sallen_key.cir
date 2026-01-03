@@ -1,0 +1,20 @@
+Monte-Carlo Sallen Key
+V1 IN 0 AC 1
+
+.param tol_C1 = 0.2
+.param tol_C2 = 0.2
+
+
+
+C1 IN 1 {MC(0.1u, tol_C1)}
+C2 1 2 {MC(0.1u, tol_C2)}
+
+R1 1 OUT 7171
+R2 2 0 14142
+
+X1 2 OUT OUT OPAMP
+
+
+.INC ideal_opamp.cir
+.step param run 1 500 1
+.AC DEC 500 100 100k
