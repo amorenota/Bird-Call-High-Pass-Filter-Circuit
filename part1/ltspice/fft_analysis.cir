@@ -1,0 +1,7 @@
+*noisy birds FFT script, no filter
+
+V1 1 0 wavefile=wind_birds.wav
+
+.TRAN 18s
+.OPTION plotwinsize=0
+.OPTION numdgt=7
