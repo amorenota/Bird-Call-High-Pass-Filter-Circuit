@@ -1,0 +1,41 @@
+Netlist 2
+
+
+.param tol_C1 = 0.2
+.param tol_C2 = 0.2
+.param tol_C3 = 0.2
+.param tol_C4 = 0.2
+.param tol_C5 = 0.2
+.param tol_C6 = 0.2
+
+*Sallen-Key 1
+V1 1 0 AC 1
+C1 1 2 {MC(0.02u, tol_C1)}
+C2 2 3 {MC(0.02u, tol_C2)}
+R1 2 4 9.65k
+R2 3 0 10.4k
+X1 4 3 4 OPAMP
+
+*Sallen-Key 2
+C3 4 5 {MC(0.02u, tol_C3)}
+C4 5 6 {MC(0.02u, tol_C4)}
+R3 5 7 7.07k
+R4 6 0 14.14k
+X2 7 6 7 OPAMP
+
+*Sallen-Key 3
+C5 7 8 {MC(0.02u, tol_C5)}
+C6 8 9 {MC(0.02u, tol_C6)}
+R5 8 10 2.6k
+R6 9 0 38.6k
+X3 10 9 10 OPAMP
+
+*Non-Inverting Op-Amp
+R7 0 11 10k
+R8 11 OUT 18.2k
+X4 10 11 OUT OPAMP
+
+.inc ideal_opamp.cir
+.step param run 1 500 1
+.AC dec 500 100 100k
+.end

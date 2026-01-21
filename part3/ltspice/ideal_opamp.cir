@@ -1,0 +1,13 @@
+* IDEAL OP-AMP MACROMODEL
+* connections:      non-inverting input
+*                   |   inverting input
+*                   |   |   output
+*                   |   |   |
+.SUBCKT OPAMP       1   2   3
+
+*Input resistance
+RIN	1 2	10MEG
+*Gain element: VCVS
+EGAIN 3 0 1 2 100K
+
+.ENDS
